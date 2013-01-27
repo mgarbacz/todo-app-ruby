@@ -6,7 +6,7 @@ describe Todo do
   end
 
   def valid_todo_hash
-    { :todo => 'Test todo.', :done => true }
+    { :todo => 'Test todo', :done => true }
   end
 
   it 'should be valid' do
