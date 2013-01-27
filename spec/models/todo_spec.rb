@@ -6,11 +6,20 @@ describe Todo do
   end
 
   def valid_todo_hash
-    { :todo => 'Test todo.', :done => false  }
+    { :todo => 'Test todo.', :done => true }
   end
 
   it 'should be valid' do
     @todo.should be_valid
   end
 
+  it 'should not be valid without a todo' do
+    @todo.todo = ''
+    @todo.should_not be_valid
+  end
+
+  it 'should not be valid without a done' do
+    @todo.done = nil
+    @todo.should_not be_valid
+  end
 end
