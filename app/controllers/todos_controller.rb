@@ -1,8 +1,5 @@
 class TodosController < ApplicationController
 
-  # Declaring formats for all views
-  respond_to :html
-
   def index 
     @todos = Todo.all
   end
@@ -10,10 +7,13 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(params[:todo])
 
-    if @todo.save
-      respond_with(@todo, :location => root_path)
-    else
-      respond_with(@todo.errors, :location => root_path)
+    respond_to do |format|
+      if @todo.save
+        format.html { render :partial => 'todos/todo' }
+      else
+        format.html { @todo.errors }
+      end
     end
   end
+
 end
