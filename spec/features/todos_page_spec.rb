@@ -29,4 +29,8 @@ feature 'todos page' do
   it 'should display new todo form' do
     page.should have_selector('form#new_todo')
   end
+
+  it 'should display input for todo todo' do
+    page.should have_selector('input#todo_todo')
+  end
 end
