@@ -1,5 +1,5 @@
 TodoAppRuby::Application.routes.draw do
   root :to => 'todos#index'
 
-  match 'create' => 'todo#create', :via => :post
+  match 'create' => 'todos#create', :via => :post
 end
