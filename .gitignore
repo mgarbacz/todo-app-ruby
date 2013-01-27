@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore mac's DS_STORE
+.DS_STORE
+
+# Ignore vim swap files if open when committing
+*.swp
