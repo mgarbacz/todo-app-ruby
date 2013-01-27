@@ -1,5 +1,16 @@
 require 'spec_helper'
 
 describe Todo do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @todo = Todo.new(valid_todo_hash)
+  end
+
+  def valid_todo_hash
+    { :todo => 'Test todo.', :done => false  }
+  end
+
+  it 'should be valid' do
+    @todo.should be_valid
+  end
+
 end
