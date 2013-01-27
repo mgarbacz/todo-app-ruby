@@ -3,4 +3,7 @@
   <% @todos.each do |todo| %>
     <li class="todo"></li>
   <% end %>
+  <%= form_for :todo, :remote => true, :html => { :id => 'new_todo' }, 
+               :url => { :controller => 'todo', :action => 'create' } do |f| %>
+  <% end %>
 </ul>
