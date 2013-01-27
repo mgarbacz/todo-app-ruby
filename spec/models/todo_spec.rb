@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe Todo do
   before(:each) do
-    @todo = Todo.new(valid_todo_hash)
+    @todo = Todo.new(valid_attributes_hash)
   end
 
-  def valid_todo_hash
+  def valid_attributes_hash
     { :todo => 'Test todo', :done => true }
   end
 
