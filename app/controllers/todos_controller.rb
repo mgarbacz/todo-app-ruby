@@ -10,8 +10,12 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = Todo.create(params[:todo])
+    @todo = Todo.new(params[:todo])
 
-    respond_with(@todo, :location => root_path)
+    if @todo.save
+      respond_with(@todo, :location => root_path)
+    else
+      respond_with(@todo.errors, :location => root_path)
+    end
   end
 end

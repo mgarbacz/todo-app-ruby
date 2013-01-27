@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TodosController do
 
   def valid_attributes_hash
-    { :todo => 'Test todo', :done => true }
+    { :todo => 'Test todo' }
   end
 
   describe 'GET "todos"' do
