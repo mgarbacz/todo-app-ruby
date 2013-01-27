@@ -23,6 +23,7 @@ feature 'todos page' do
 
     todo = Todo.new(valid_attributes_hash)
     if todo.save
+      visit '/'
       all('li.todo').should have(todo_count+1).items
     end
   end
@@ -30,6 +31,7 @@ feature 'todos page' do
   it 'should show todo for todo item' do
     todo = Todo.new(valid_attributes_hash)
     if todo.save
+      visit '/'
       find('li.todo').should have_content(valid_attributes_hash[:todo])
     end
   end
@@ -37,6 +39,7 @@ feature 'todos page' do
   it 'should show checkbox for todo item' do
     todo = Todo.new(valid_attributes_hash)
     if todo.save
+      visit '/'
       find('li.todo').should have_selector('input#todo_done') 
     end
   end
