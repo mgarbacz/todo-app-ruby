@@ -31,6 +31,10 @@ feature 'todos page' do
   end
 
   it 'should display input for todo todo' do
-    page.should have_selector('input#todo_todo')
+    page.should have_selector('form#new_todo input#todo_todo')
+  end
+
+  it 'should display submit button for todo' do
+    page.should have_selector('form#new_todo input#todo_submit')
   end
 end
