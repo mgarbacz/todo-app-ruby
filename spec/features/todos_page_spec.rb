@@ -17,16 +17,14 @@ feature 'todos page' do
     find('ul.todos').should be_true
   end
 
-  it 'should display no todos if none are in database' do
+  it 'should display all todos that are in database' do
     todo_count = Todo.all.count
     all('li.todo').should have(todo_count).items
-  end
 
-  it 'should display all todos that are in database' do
     todo = Todo.new(valid_attributes_hash)
     if todo.save
       visit '/'
-      all('li.todo').should have(1).items
+      all('li.todo').should have(todo_count+1).items
     end
   end
 
