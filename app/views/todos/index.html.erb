@@ -1,7 +1,7 @@
 <h1>Your Todos</h1>
 <ul class="todos">
   <% @todos.each do |todo| %>
-    <li class="todo"></li>
+    <li class="todo"><%= todo.todo %></li>
   <% end %>
 </ul>
 <%= form_for :todo, :remote => true, :html => { :id => 'new_todo' }, 

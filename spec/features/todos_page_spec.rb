@@ -5,6 +5,10 @@ feature 'todos page' do
     visit '/'
   end
 
+  def valid_attributes_hash
+    { :todo => 'Test todo' }
+  end
+
   it 'should be root' do
     page.should have_content('Your Todos')
   end
@@ -19,10 +23,18 @@ feature 'todos page' do
   end
 
   it 'should display all todos that are in database' do
-    todo = Todo.new( { :todo => 'Test todo', :done => true } )
+    todo = Todo.new(valid_attributes_hash)
     if todo.save
       visit '/'
       all('li.todo').should have(1).items
+    end
+  end
+
+  it 'should show todo for todo item' do
+    todo = Todo.new(valid_attributes_hash)
+    if todo.save
+      visit '/'
+      find('li.todo').should have_content(valid_attributes_hash[:todo])
     end
   end
 
