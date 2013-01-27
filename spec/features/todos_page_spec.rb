@@ -36,6 +36,14 @@ feature 'todos page' do
     end
   end
 
+  it 'should show checkbox for todo item' do
+    todo = Todo.new(valid_attributes_hash)
+    if todo.save
+      visit '/'
+      find('li.todo').should have_selector('input#todo_done') 
+    end
+  end
+
   it 'should display new todo form' do
     page.should have_selector('form#new_todo')
   end
