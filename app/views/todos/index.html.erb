@@ -7,7 +7,7 @@
     </li>
   <% end %>
 </ul>
-<%= form_for :todo, :remote => true, :html => { :id => 'new_todo' }, 
+<%= form_for :todo, :html => { :id => 'new_todo' }, 
              :url => { :controller => 'todos', :action => 'create' } do |f| %>
   <%= f.text_field :todo %>
   <%= f.submit 'Add Todo', :class => 'btn', :id => 'todo_submit'  %>
