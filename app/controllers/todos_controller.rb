@@ -18,4 +18,18 @@ class TodosController < ApplicationController
     end
   end
 
+  def update
+    @todo = Todo.find(params[:id])
+
+    respond_to do |format|
+      if @todo.update_attributes(params[:todo])
+        format.html { 
+          render :partial => 'todos/todo', :locals => { :todo => @todo }
+        }
+      else
+        format.html { @todo.errors }
+      end
+    end
+  end
+
 end
