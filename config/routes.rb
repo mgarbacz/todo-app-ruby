@@ -3,4 +3,5 @@ TodoAppRuby::Application.routes.draw do
 
   match 'index' => 'todos#index', :via => :get
   match 'create' => 'todos#create', :via => :post
+  match 'update' => 'todos#update', :via => :put
 end

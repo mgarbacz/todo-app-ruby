@@ -15,5 +15,9 @@ describe TodosController do
       post('/create').should route_to('todos#create')
     end
 
+    it 'routes to #update' do
+      put('/update').should route_to('todos#update')
+    end
+
   end
 end
