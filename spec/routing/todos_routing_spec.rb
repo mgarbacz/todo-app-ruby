@@ -16,7 +16,7 @@ describe TodosController do
     end
 
     it 'routes to #update' do
-      put('/update').should route_to('todos#update')
+      put('/update/1').should route_to('todos#update', :id => '1')
     end
 
   end

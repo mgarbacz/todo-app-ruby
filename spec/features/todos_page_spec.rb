@@ -40,7 +40,18 @@ feature 'todos page' do
     todo = Todo.new(valid_attributes_hash)
     if todo.save
       visit '/'
-      find('li.todo').should have_selector('input#todo_done') 
+      find('li.todo').should have_selector('input.todo_done') 
+    end
+  end
+
+  it 'should have true class todo on check of checkbox' do
+    todo = Todo.new(valid_attributes_hash)
+    if todo.save
+      visit '/'
+      page.should have_selector('input.todo_done_false') 
+      check('todo_done_1')
+      visit '/'
+      page.should have_selector('input.todo_done_true') 
     end
   end
 
