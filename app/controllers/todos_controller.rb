@@ -9,7 +9,9 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { render :partial => 'todos/todo' }
+        format.html { 
+          render :partial => 'todos/todo', :locals => { :todo => @todo }
+        }
       else
         format.html { @todo.errors }
       end

@@ -1,11 +1,6 @@
 <h1>Your Todos</h1>
 <ul class="todos">
-  <% @todos.each do |todo| %>
-    <li class="todo">
-      <input id="todo_done" type="checkbox">
-      <%= todo.todo %>
-    </li>
-  <% end %>
+  <%= render :partial => 'todos/todo', :collection => @todos  %>
 </ul>
 <%= form_for :todo, :remote => true, :html => { :id => 'new_todo' }, 
              :url => { :controller => 'todos', :action => 'create' } do |f| %>
