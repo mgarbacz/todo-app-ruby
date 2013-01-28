@@ -24,7 +24,7 @@ feature 'todos page' do
     todo = Todo.new(valid_attributes_hash)
     if todo.save
       visit '/'
-      all('li.todo').should have(todo_count+1).items
+      all('li.todo').should have(todo_count + 1).items
     end
   end
 
@@ -54,5 +54,15 @@ feature 'todos page' do
 
   it 'should display submit button for todo' do
     page.should have_selector('form#new_todo input#todo_submit')
+  end
+
+  it 'should add todo to todos list when submitted' do
+    todo_count = all('li.todo').count
+    within('form#new_todo') do
+      fill_in('todo_todo', 
+        :with => valid_attributes_hash[:todo])
+      click_button('todo_submit')
+    end
+    all('li.todo').should have(todo_count + 1).items
   end
 end
