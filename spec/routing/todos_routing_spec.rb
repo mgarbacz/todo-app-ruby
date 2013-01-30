@@ -19,5 +19,9 @@ describe TodosController do
       put('/update/1').should route_to('todos#update', :id => '1')
     end
 
+    it 'routes to #destory' do
+      delete('/1').should route_to('todos#destroy', :id => '1')
+    end
+
   end
 end
