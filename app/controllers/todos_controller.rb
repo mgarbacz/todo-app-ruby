@@ -37,7 +37,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_url }
+      format.html { head :ok }
     end
   end
 

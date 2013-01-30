@@ -61,6 +61,12 @@ describe TodosController do
         delete :destroy, { :id => todo.to_param }, {}
       }.to change(Todo, :count).by(-1)
     end
+
+    it 'responds with ok' do
+      todo = Todo.create! valid_attributes_hash
+      delete :destroy, { :id => todo.to_param }, {}
+      response.should be_success
+    end
   end
 
 end
