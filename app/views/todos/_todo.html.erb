@@ -8,8 +8,8 @@
     <%= f.check_box :done,
                     :id => 'todo_done_' + todo.id.to_s,
                     :class => 'todo_done todo_done_' + todo.done.to_s,
-                    :onchange => '$("#todo_update_' + todo.id.to_s + '")
-                      .submit();' %>
+                    :onchange => '$("#todo_update_' + todo
+                      .id.to_s + '").submit();' %>
   <% end %>
   <%= todo.todo %>
   <%= link_to 'x',
