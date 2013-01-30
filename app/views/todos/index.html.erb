@@ -1,4 +1,10 @@
 <h1>Your Todos</h1>
+<%= link_to 'Clear all done todos',
+            { :controller => 'todos',
+              :action => 'clear_done' },
+            method: :delete,
+            :remote => true,
+            :id => 'clear_done_todos' %>
 <ul class="todos">
   <%= render :partial => 'todos/todo', :collection => @todos %>
 </ul>

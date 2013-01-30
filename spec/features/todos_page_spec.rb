@@ -52,11 +52,25 @@ feature 'todos page' do
     find('li.todo').should have_selector('a.todo_destroy')
   end
 
-  it 'should display remove deleted todo item' do
+  it 'should not display remove deleted todo item' do
     todo = Todo.create! valid_attributes_hash
     visit '/'
     click_link('todo_destroy_1')
     page.should_not have_selector('li.todo')
+  end
+
+  it 'should display button to clear all done todos' do
+    page.should have_selector('a#clear_done_todos')
+  end
+
+  it 'should remove all done todos when cleared' do
+    todo1 = Todo.create! valid_attributes_hash
+    todo2 = Todo.create! valid_attributes_hash
+    todo_count = Todo.all.count
+    visit '/'
+    check('todo_done_1')
+    click_link('clear_done_todos')
+    all('li.todo').should have(todo_count - 1).items
   end
 
   it 'should display new todo form' do
