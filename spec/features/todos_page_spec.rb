@@ -21,38 +21,29 @@ feature 'todos page' do
     todo_count = Todo.all.count
     all('li.todo').should have(todo_count).items
 
-    todo = Todo.new(valid_attributes_hash)
-    if todo.save
-      visit '/'
-      all('li.todo').should have(todo_count + 1).items
-    end
+    todo = Todo.create! valid_attributes_hash
+    visit '/'
+    all('li.todo').should have(todo_count + 1).items
   end
 
   it 'should show todo for todo item' do
-    todo = Todo.new(valid_attributes_hash)
-    if todo.save
-      visit '/'
-      find('li.todo').should have_content(valid_attributes_hash[:todo])
-    end
+    todo = Todo.create! valid_attributes_hash
+    visit '/'
+    find('li.todo').should have_content(valid_attributes_hash[:todo])
   end
 
   it 'should show checkbox for todo item' do
-    todo = Todo.new(valid_attributes_hash)
-    if todo.save
-      visit '/'
-      find('li.todo').should have_selector('input.todo_done') 
-    end
+    todo = Todo.create! valid_attributes_hash
+    visit '/'
+    find('li.todo').should have_selector('input.todo_done') 
   end
 
   it 'should have true class todo on check of checkbox' do
-    todo = Todo.new(valid_attributes_hash)
-    if todo.save
-      visit '/'
-      page.should have_selector('input.todo_done_false') 
-      check('todo_done_1')
-      visit '/'
-      page.should have_selector('input.todo_done_true') 
-    end
+    todo = Todo.create! valid_attributes_hash
+    visit '/'
+    page.should have_selector('input.todo_done_false') 
+    check('todo_done_1')
+    page.should have_selector('input.todo_done_true') 
   end
 
   it 'should display new todo form' do
