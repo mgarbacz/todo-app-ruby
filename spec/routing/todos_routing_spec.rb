@@ -7,7 +7,7 @@ describe TodosController do
       get('/').should route_to('todos#index')
     end
     
-    it 'routes to index' do
+    it 'routes to #index' do
       get('/index').should route_to('todos#index')
     end
 
