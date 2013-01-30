@@ -41,4 +41,13 @@ class TodosController < ApplicationController
     end
   end
 
+  def clear_done
+    @todos = Todo.where(:done => true)
+    @todos.destroy_all
+
+    respond_to do |format|
+      format.html { head :ok }
+    end
+  end
+
 end

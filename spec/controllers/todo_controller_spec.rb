@@ -69,4 +69,14 @@ describe TodosController do
     end
   end
 
+  describe 'DELETE clear_done' do
+    it 'destroys the done todos' do
+      todo1 = Todo.create! valid_attributes_hash
+      todo2 = Todo.create! valid_attributes_hash.merge({ :done => true })
+      expect {
+        delete :clear_done, {}
+      }.to change(Todo, :count).by(-1)
+    end
+  end
+
 end
