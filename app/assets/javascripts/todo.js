@@ -1,21 +1,31 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-function updateTodoList() {
+function onAddTodo() {
   $('form#new_todo').bind('ajax:success', function(xhr, data, status) {
     $('ul.todos').append(data);
     $('input#todo_todo').val('');
+    onUpdateTodo();
+    onDeleteTodo();
   });
 }
 
-function updateTodoDone() {
+function onUpdateTodo() {
   $('form.edit_todo').bind('ajax:success', function(xhr, data, status) {
     $(this).parent().replaceWith(data);
-    updateTodoDone();
+    onUpdateTodo();
+    onDeleteTodo();
+  });
+}
+
+function onDeleteTodo() {
+  $('a.todo_destroy').bind('ajax:success', function(xhr, data, status) {
+    $(this).parent().remove();
   });
 }
 
 $(function() {
-  updateTodoList();
-  updateTodoDone();
+  onAddTodo();
+  onUpdateTodo();
+  onDeleteTodo();
 });
