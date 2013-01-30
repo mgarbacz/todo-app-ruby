@@ -61,8 +61,7 @@ feature 'todos page' do
   it 'should add todo to todos list when submitted' do
     todo_count = all('li.todo').count
     within('form#new_todo') do
-      fill_in('todo_todo', 
-        :with => valid_attributes_hash[:todo])
+      fill_in('todo_todo', :with => valid_attributes_hash[:todo])
       click_button('todo_submit')
     end
     all('li.todo').should have(todo_count + 1).items
