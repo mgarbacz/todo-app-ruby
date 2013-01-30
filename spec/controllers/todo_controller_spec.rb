@@ -77,6 +77,11 @@ describe TodosController do
         delete :clear_done, {}
       }.to change(Todo, :count).by(-1)
     end
+
+    it 'responds with ok' do
+      delete :clear_done, {}
+      response.should be_success
+    end
   end
 
 end
