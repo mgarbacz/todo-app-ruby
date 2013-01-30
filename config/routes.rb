@@ -1,8 +1,8 @@
 TodoAppRuby::Application.routes.draw do
   root :to => 'todos#index'
 
-  match 'index' => 'todos#index', :via => :get
-  match 'create' => 'todos#create', :via => :post
-  match 'update/:id' => 'todos#update', :via => :put
-  match ':id' => 'todos#destroy', :via => :delete
+  match 'todos' => 'todos#index', :via => :get
+  match 'todos' => 'todos#create', :via => :post
+  match 'todos/:id' => 'todos#update', :via => :put
+  match 'todos/:id' => 'todos#destroy', :via => :delete
 end

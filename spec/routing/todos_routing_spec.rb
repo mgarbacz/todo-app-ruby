@@ -8,19 +8,19 @@ describe TodosController do
     end
     
     it 'routes to #index' do
-      get('/index').should route_to('todos#index')
+      get('/todos').should route_to('todos#index')
     end
 
     it 'routes to #create' do
-      post('/create').should route_to('todos#create')
+      post('/todos').should route_to('todos#create')
     end
 
     it 'routes to #update' do
-      put('/update/1').should route_to('todos#update', :id => '1')
+      put('/todos/1').should route_to('todos#update', :id => '1')
     end
 
     it 'routes to #destory' do
-      delete('/1').should route_to('todos#destroy', :id => '1')
+      delete('/todos/1').should route_to('todos#destroy', :id => '1')
     end
 
   end
