@@ -23,5 +23,9 @@ describe TodosController do
       delete('/todos/1').should route_to('todos#destroy', :id => '1')
     end
 
+    it 'routes to #clear_done' do
+      delete('/todos').should route_to('todos#clear_done')
+    end
+
   end
 end

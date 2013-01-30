@@ -5,4 +5,5 @@ TodoAppRuby::Application.routes.draw do
   match 'todos' => 'todos#create', :via => :post
   match 'todos/:id' => 'todos#update', :via => :put
   match 'todos/:id' => 'todos#destroy', :via => :delete
+  match 'todos' => 'todos#clear_done', :via => :delete
 end
