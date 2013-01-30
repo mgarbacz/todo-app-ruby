@@ -53,4 +53,14 @@ describe TodosController do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+    it 'destroys the requested todo' do
+      todo = Todo.create! valid_attributes_hash
+      expect {
+        delete :destroy, { :id => todo.to_param }, {}
+      }.to change(Todo, :count).by(-1)
+    end
+  end
+
 end
