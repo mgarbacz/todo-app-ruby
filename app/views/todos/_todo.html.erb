@@ -1,13 +1,22 @@
 <li id="todo_<%= todo.id %>" class="todo">
-  <%= form_for todo, :remote => true,
-                     :html => { :id => 'todo_update_' + todo.id.to_s },
-                     :url => { :controller => 'todos', 
-                               :action => 'update',
-                               :id => todo.id } do |f| %>
+  <%= form_for todo, 
+               :remote => true,
+               :html => { :id => 'todo_update_' + todo.id.to_s },
+               :url => { :controller => 'todos', 
+                         :action => 'update',
+                         :id => todo.id } do |f| %>
     <%= f.check_box :done,
                     :id => 'todo_done_' + todo.id.to_s,
                     :class => 'todo_done todo_done_' + todo.done.to_s,
-                    :onchange => '$("#todo_update_' + todo.id.to_s + '").submit();' %>
+                    :onchange => '$("#todo_update_' + todo.id.to_s + '")
+                      .submit();' %>
   <% end %>
   <%= todo.todo %>
+  <%= link_to 'x', 
+              { :controller => 'todos',
+                :action => 'destroy',
+                :id => todo.id },
+              method: :delete,
+              :class => 'todo_destroy',
+              :id => 'todo_destroy_' + todo.id.to_s %>
 </li>

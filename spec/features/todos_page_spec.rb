@@ -46,6 +46,19 @@ feature 'todos page' do
     page.should have_selector('input.todo_done_true') 
   end
 
+  it 'should display link to delete todo item' do
+    todo = Todo.create! valid_attributes_hash
+    visit '/'
+    find('li.todo').should have_selector('a.todo_destroy')
+  end
+
+  it 'should display remove deleted todo item' do
+    todo = Todo.create! valid_attributes_hash
+    visit '/'
+    click_link('todo_destroy_1')
+    page.should_not have_selector('li.todo')
+  end
+
   it 'should display new todo form' do
     page.should have_selector('form#new_todo')
   end
