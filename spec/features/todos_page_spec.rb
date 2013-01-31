@@ -41,9 +41,9 @@ feature 'todos page' do
   it 'should have true class todo on check of checkbox' do
     todo = Todo.create! valid_attributes_hash
     visit '/'
-    page.should have_selector('input.todo_done_false') 
+    page.should have_selector('li.todo_done_false') 
     check('todo_done_1')
-    page.should have_selector('input.todo_done_true') 
+    page.should have_selector('li.todo_done_true') 
   end
 
   it 'should display link to delete todo item' do

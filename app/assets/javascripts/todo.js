@@ -26,7 +26,7 @@ function onDeleteTodo() {
 
 function onClearTodos() {
   $('#clear_done_todos').bind('ajax:success', function(xhr, data, status) {
-    $('li.todo input.todo_done_true').parent().parent().remove();
+    $('li.todo_done_true').remove();
   });
 }
 
