@@ -13,3 +13,6 @@ Lessons learned:
   easy standard
 * It is quite easy to get lost in implementing a complex feature and to begin
   deviating from passing the test to adding related (but yet untested) code
+
+![Screenshot](https://raw.github.com/mgarbacz/todo-app-ruby/master/public/
+  ss.png')
