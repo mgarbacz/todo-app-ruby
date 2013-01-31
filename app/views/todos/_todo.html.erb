@@ -1,4 +1,4 @@
-<li id="todo_<%= todo.id %>" class="todo">
+<li id="todo_<%= todo.id %>" class="todo todo_done_<%= todo.done.to_s %>">
   <%= form_for todo, 
                :remote => true,
                :html => { :id => 'todo_update_' + todo.id.to_s },
@@ -7,7 +7,7 @@
                          :id => todo.id } do |f| %>
     <%= f.check_box :done,
                     :id => 'todo_done_' + todo.id.to_s,
-                    :class => 'todo_done todo_done_' + todo.done.to_s,
+                    :class => 'todo_done',
                     :onchange => '$("#todo_update_' + todo
                       .id.to_s + '").submit();' %>
   <% end %>

@@ -64,6 +64,7 @@ li.todo {
 }
 li.todo_done_true {
   text-decoration:line-through;
+  color:#ccc;
 }
 
 input.todo_done {
