@@ -62,6 +62,9 @@ li {
 li.todo {
   font-size:20px;
 }
+li.todo_done_true {
+  text-decoration:line-through;
+}
 
 input.todo_done {
   float:left;
